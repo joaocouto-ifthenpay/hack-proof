@@ -5,6 +5,7 @@
     "firebase": "^9.20.0"
   },
   "scripts": {
-    "build": "webpack --mode production"
+    "start": "node server.js",
+    "build": "node server.js"
   }
 }
