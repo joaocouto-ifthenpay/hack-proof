@@ -204,7 +204,7 @@ main {
 
 .wallpaper {
     width: 100%;
-    background-image: url('./images/login_menu2.png');
+    background-image: url('../images/login_menu2.png');
     background-size: cover;
     background-position: center;
     flex: 1;
