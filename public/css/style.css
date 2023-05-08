@@ -41,19 +41,19 @@ main {
     align-items: center;
     justify-content: center;
     margin-top: 10%;
-    /* margin-top: -10%;
-    margin-bottom: -10%; */
+    margin-bottom: -10%;
 }
 
 .login__logo {
     width: 130px;
     margin-bottom: 80px;
-    margin-top: -10%;
+    margin-top: -15%;
 }
 
 .login__title {
     color: var(--deep-grey);
     font-size: 1.5em;
+    margin-top: -10%;
     margin-bottom: 30px;
 }
 
@@ -168,15 +168,14 @@ main {
     width: 60px;
     height: 60px;
     padding: 20px;
-    display: flex;
+    display: inline;
     align-items: center;
     justify-content: center;
     background-color: var(--red);
     border-radius: 20px;
     border: none;
     cursor: pointer;
-    margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .login__button svg {

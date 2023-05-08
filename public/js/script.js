@@ -28,6 +28,22 @@ const firebaseConfig = {
     /**
      * Copy & Paste Firebase Credentials
      */
+    apiKey: "AIzaSyAaKkjFltk24MHTAGLZctmXtUYblGXOxUE",
+
+    authDomain: "hack-proof-ispgaya.firebaseapp.com",
+  
+    databaseURL: "https://hack-proof-ispgaya-default-rtdb.firebaseio.com",
+  
+    projectId: "hack-proof-ispgaya",
+  
+    storageBucket: "hack-proof-ispgaya.appspot.com",
+  
+    messagingSenderId: "992546203502",
+  
+    appId: "1:992546203502:web:9f8c378287012e9ab7437f",
+  
+    measurementId: "G-WTME1N0V6Z"
+  
 };
 
 // Initialize Firebase
