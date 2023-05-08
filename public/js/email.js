@@ -1,4 +1,24 @@
 /**
+ * Validação do formulário login
+ */
+
+const usernameInput = document.getElementById("email");
+const passwordInput = document.getElementById("senha");
+const submitButton = document.getElementById("sign_in");
+
+usernameInput.addEventListener("input", toggleButton);
+passwordInput.addEventListener("input", toggleButton);
+
+function toggleButton() {
+  if (usernameInput.value != "" && passwordInput.value != "") {
+    submitButton.disabled = false;
+  } else {
+    submitButton.disabled = true;
+  }
+}
+
+
+/**
  * Função de registo com email e password
  */
 function createLogin() {
@@ -45,7 +65,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (user) {
             console.log('user', user);
             console.log(user.displayName);
-            document.getElementById("loginForm").innerHTML = "<div><h2>Olá " + user.displayName + "!</h2><div class='wrapper'><a class='login__link' id='sign_out' onclick='logout()'>Sair</a></div></div";
+            // document.getElementById("loginForm").innerHTML = "<div><h2>Olá " + user.displayName + "!</h2><div class='wrapper'><a class='login__link' id='sign_out' onclick='logout()'>Sair</a></div></div";
+            
+            fetch('main.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('loginForm').innerHTML = "<div><h2>Olá " + user.displayName + "!</h2>" + data;
+            });
+
             // document.getElementById('loading').style.display = 'none';
             // document.getElementById('loaded').style.display = 'block';
             // user ? handleSignedInUser(user) : handleSignedOutUser();
