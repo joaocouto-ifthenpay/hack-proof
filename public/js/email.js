@@ -63,14 +63,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Observa se há um utilizador e mudanças na autenticação (login e logout)
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-            console.log('user', user);
-            console.log(user.displayName);
-            // document.getElementById("loginForm").innerHTML = "<div><h2>Olá " + user.displayName + "!</h2><div class='wrapper'><a class='login__link' id='sign_out' onclick='logout()'>Sair</a></div></div";
+            // document.getElementById("loginForm").innerHTML = "<div><h2>Olá " + user.displayName + "!</h2><div class='wrapper'>
+            //<a class='login__link' id='sign_out' onclick='logout()'>Sair</a></div></div";
             
             fetch('main.html')
             .then(response => response.text())
             .then(data => {
-                document.getElementById('loginForm').innerHTML = "<div><h2>Olá " + user.displayName + "!</h2>" + data;
+                console.log(data)
+                document.getElementById('loginForm').innerHTML = "<div class='user-main'><div class='greeting'>Olá</div><div class='name'>" 
+                + user.displayName + "!</div>" + data;
             });
 
             // document.getElementById('loading').style.display = 'none';
@@ -94,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //     alert('Email para reset de password enviado');
             // })
         } else {
-            console.log('não há utilizadores com sessão iniciada');
+            console.log('Não há utilizadores com sessão iniciada');
         }
     });
 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackProof</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <!-- Import Resources -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <!-- Import Firebase SDK -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- <script type="module" src="js/script.js" defer></script> -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+</head>
+
+<body>
+    <main class="maps-page">
+        <section class="title">
+                <div class="label">
+                        <span>Choose Your Map</span>
+                </div>
+        </section>
+        <section class="all-maps">
+                <div id="choose_maps" class="choose-maps">
+                        <div class="maps-content">
+                                <div class="map-image">
+                                        <a href="../play/index.html?map=1"><img src="../images/maps/mapa1.jpg" alt=""></a>
+                                </div>
+                        </div>
+                        <div class="maps-content">
+                                <div class="map-image">
+                                        <a href="../play/index.html?map=2"><img src="../images/maps/mapa2.jpg" alt=""></a>
+                                </div>
+                        </div>
+                        <div class="maps-content">
+                                <div class="map-image locked">
+                                        <a href="../play/index.html?map=3"><img src="../images/maps/mapa3.jpg" alt=""></a>
+                                </div>
+                        </div>
+                        <div class="maps-content">
+                                <div class="map-image locked">
+                                        <a href="../play/index.html?map=4"><img src="../images/maps/mapa4.jpg" alt=""></a>
+                                </div>
+                        </div>
+                        <div class="maps-content">
+                                <div class="map-image locked">
+                                        <a href="../play/index.html?map=5"><img src="../images/maps/mapa5.jpg" alt=""></a>
+                                </div>
+                        </div>
+                        <div class="maps-content">
+                                <div class="map-image locked">
+                                        <a href="../play/index.html?map=6"><img src="../images/maps/mapa6.jpg" alt=""></a>
+                                </div>
+                        </div>
+                </div>
+        </section>
+    </main>
+
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/3.5.1/firebase-ui-auth__pt.js"></script>
+
+    <!-- Inicializa o firebase -->
+    <script>
+        var config = {
+            apiKey: "AIzaSyAaKkjFltk24MHTAGLZctmXtUYblGXOxUE",
+
+            authDomain: "hack-proof-ispgaya.firebaseapp.com",
+
+            databaseURL: "https://hack-proof-ispgaya-default-rtdb.firebaseio.com",
+
+            projectId: "hack-proof-ispgaya",
+
+            storageBucket: "hack-proof-ispgaya.appspot.com",
+
+            messagingSenderId: "992546203502",
+
+            appId: "1:992546203502:web:9f8c378287012e9ab7437f",
+
+            measurementId: "G-WTME1N0V6Z"
+
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!-- Nosso app -->
+    <script src="./js/app.js"></script>
+    <script src="./js/email.js"></script>
+</body>
+
+</html>
