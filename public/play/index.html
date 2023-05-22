@@ -4,33 +4,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sense Hack 👹</title>
+  <title>Hack-Proof 👹</title>
   <link rel="icon" type="image/png" sizes="128x128" href="images/favicon.png" />
   <link rel="stylesheet" href="styles/style.css" type="text/css" />
   <link rel="stylesheet" href="customize.css" type="text/css" />
-  <script src="cards.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+  <script src="cards_school.js" type="text/javascript"></script>
 </head>
 
 <body>
   <div class="game-board">
-    <!-- <h1>
-        <strong>Hacker's attack Cards</strong> <br />
-        Choose the best card to stop the hackers' attack <br />
-      </h1> -->
-    <div class="title-h1">
+    <div class="header">
+      <!-- <div class="logo_ispgaya" src="./images/logo_ispgaya.png" width="15%" height="15%"></div> -->
       <h1>
-        <strong>Hacker's attack Cards</strong> <br />
-        Choose the best card to stop the hackers' attack
+        <strong>À Prova de Hacker</strong> <br />
+        Escolhe a melhor carta para parar o ataque dos hackers
       </h1>
     </div>
-    <div class="hacker-area">
+    <div class=" hacker-area">
+      <video autoplay loop muted id="videoBackgroundLeft">
+        <source src="./video/hacker.mp4" type="video/mp4" />
+      </video>
       <div class="stats hacker-stats">
         <div class="life-bar">
           <div class="life-left hacker-color"></div>
         </div>
         <div class="life-total"></div>
         <div class="thumbnail">
-          <img src="images/duel1.png" alt="hacker" />
+          <!-- <img src="images/duel1.png" alt="hacker" /> -->
         </div>
         <div class="name">Hacker</div>
       </div>
@@ -42,6 +43,9 @@
     </div>
 
     <div class="player-area">
+      <video autoplay loop muted id="videoBackgroundRight" width="50%" height="50%">
+        <source src="./video/player.mp4" type="video/mp4" />
+      </video>
       <div class="stats player-stats">
         <div class="life-bar">
           <div class="life-left player-color"></div>
@@ -49,9 +53,9 @@
         <div class="life-total"></div>
         <!-- Change the name and emoji here -->
         <div class="thumbnail">
-          <img src="images/duel2.png" alt="You" />
+          <!-- <img src="images/duel2.png" alt="You" /> -->
         </div>
-        <div class="name">Tu</div>
+        <div id='player' class="name">Tu</div>
       </div>
 
       <div class="card player-card player-color">
@@ -69,19 +73,46 @@
         <div class="power"></div>
       </div>
 
-      <button class="start-game" onClick="startGame()">Play the Game!</button>
-      <button class="next-turn" onClick="playTurn()">Next!</button>
+      <button class="start-game" onClick="startGame()">Inicia o desafio!</button>
+      <button class="next-turn" onClick="playTurn()">Avançar!</button>
     </div>
   </div>
 
   <div class="winner-section">
     <div>
-      <span class="winner-message">You got hacked!</span>
-      <button class="restart" onClick="location.reload()">Play Again</button>
+      <span class="winner-message">Foste hackeado!</span>
+      <button class="restart" onClick="location.reload()">Jogar Novamente</button>
     </div>
   </div>
 
   <script src="scripts/script.js" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+  <!-- Firebase App is always required and must be first -->
+  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+  <!-- Add additional services that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/3.5.1/firebase-ui-auth__pt.js"></script>
+
+  <!-- Inicializa o firebase -->
+  <script>
+    var config = {
+      apiKey: "AIzaSyAaKkjFltk24MHTAGLZctmXtUYblGXOxUE",
+      authDomain: "hack-proof-ispgaya.firebaseapp.com",
+      databaseURL: "https://hack-proof-ispgaya-default-rtdb.firebaseio.com",
+      projectId: "hack-proof-ispgaya",
+      storageBucket: "hack-proof-ispgaya.appspot.com",
+      messagingSenderId: "992546203502"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="login.js"></script>
 </body>
 
 </html>

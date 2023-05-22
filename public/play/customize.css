@@ -1,4 +1,4 @@
-/* Change the colors in this stylesheet to customize the game. */ 
+/* Change the colors in this stylesheet to customize the game. */
 
 /* Player Styles */
 
@@ -60,4 +60,32 @@
 
 .hacker-card .power {
   background-image: url(images/skull.svg);
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+
+  /* Media query para smartphones com até 1000px de largura */
+  .hacker-card .power {
+    width: 15%;
+    height: 15%;
+  }
+
+  .player-card .power {
+    width: 15%;
+    height: 15%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+
+  /* Media query para smartphones com até 900px de largura */
+  .hacker-card .power {
+    background-image: none;
+  }
+
+  .player-card .power {
+    background-image: none;
+  }
 }
