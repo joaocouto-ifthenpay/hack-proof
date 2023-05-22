@@ -65,15 +65,37 @@ document.addEventListener("DOMContentLoaded", function () {
         if (user) {
             // document.getElementById("loginForm").innerHTML = "<div><h2>Olá " + user.displayName + "!</h2><div class='wrapper'>
             //<a class='login__link' id='sign_out' onclick='logout()'>Sair</a></div></div";
-            
-            fetch('main.html')
-            .then(response => response.text())
-            .then(data => {
-                console.log(data)
-                document.getElementById('loginForm').innerHTML = "<div class='user-main'><div class='greeting'>Olá</div><div class='name'>" 
-                + user.displayName + "!</div>" + data;
-            });
+            let uid = user.uid;
+            const database = firebase.database();
+              
+            // Obter uma referência para o caminho especificado
+            const ref = database.ref('score/'+uid);
 
+            // Ler os dados uma única vez
+            ref.once('value')
+            .then((snapshot) => {
+                console.log(snapshot);
+                // Dados lidos com sucesso
+                let readData = snapshot.val();
+                console.log(uid);
+                console.log(readData.score);
+                let score = readData.score;
+                fetchData(score);
+            })
+            .catch((error) => {
+                console.log('Erro ao ler os dados:', error);
+            });
+            
+            
+            function fetchData(score) {
+                fetch('main.html')
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data)
+                    document.getElementById('loginForm').innerHTML = "<div class='user-main'><div class='greeting'>Olá</div><div class='name'>" 
+                    + user.displayName + "!</div>" + " A tua atual pontuação: " + score + " ponto(s)" + data;
+                });
+            }
             // document.getElementById('loading').style.display = 'none';
             // document.getElementById('loaded').style.display = 'block';
             // user ? handleSignedInUser(user) : handleSignedOutUser();
@@ -81,14 +103,14 @@ document.addEventListener("DOMContentLoaded", function () {
             // Mudando o idioma do firebase
             // firebase.auth().languageCode = 'pt';
             // Muda o idioma
-            firebase.auth().useDeviceLanguage();
+            // firebase.auth().useDeviceLanguage();
 
-            if (!user.emailVerified) {
+            // if (!user.emailVerified) {
                 // Envia um email para o utilizador verificar a conta dele.
                 // user.sendEmailVerification().then(() => {
                 //     alert('email de verificação enviado');
                 // });
-            };
+            // };
 
             // Envia um email para mudança de password ao email passado por parametro.
             // firebase.auth().sendPasswordResetEmail(user.email).then(() => {

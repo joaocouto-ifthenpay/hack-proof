@@ -102,9 +102,9 @@ function compareCards() {
   updateScores();
 
   if (playerLife <= 0) {
-    gameOver("Hacker");
+    gameOver("Hacker", hackerLife);
   } else if (hackerLife <= 0) {
-    gameOver("Player")
+    gameOver("Player", playerLife)
   }
 
   roundFinished = true;
@@ -113,7 +113,7 @@ function compareCards() {
 }
 
 // Shows the winner message
-function gameOver(winner) {
+function gameOver(winner, score) {
   audioObj.pause();
   document.querySelector(".game-board").classList.add("game-over");
   document.querySelector(".winner-section").style.display = "flex";
@@ -125,11 +125,16 @@ function gameOver(winner) {
     evilAudio.play();
     document.querySelector(".winner-message").innerHTML = hackerWinnerMessage;
     document.querySelector(".winner-section").classList.add("hacker-color");
+    score = -score;
+
+    updateFinalScore(score);
   } else {
     let ohNoAudio = new Audio("Oh-no-sound-effect.mp3");
     ohNoAudio.play();
     document.querySelector(".winner-message").innerHTML = playerWinnerMessage;
     document.querySelector(".winner-section").classList.add("player-color");
+
+    updateFinalScore(score);
   }
 }
 
@@ -288,4 +293,68 @@ function revealCards() {
   // Display the hacker card
   hackerCardEl.querySelector(".text").innerHTML = hackerCard.description;
   hackerCardEl.querySelector(".power").innerHTML = hackerCard.power;
+}
+
+
+function updateFinalScore(score) {
+
+  // Obter uma referência para a base de dados
+  
+
+  const database = firebase.database();
+
+
+  // Definir o caminho onde deseja adicionar o registro
+  const path = 'caminho/para/o/seu/registro'; // Substitua pelo seu próprio caminho
+
+  let user = firebase.auth().currentUser;
+  let uid = user.uid;
+  // let yourdata = { emailid: uid, msgContent: 'Score:'+score, name: user.displayName};
+
+  writeUserData(uid, score, user.displayName);
+
+  // firebase.database().ref('contactForm').child(uid).set(yourdata)
+  //   .then((data) => {
+  //       console.log('Saved Data', data);
+  //   })
+  //   .catch((error) => {
+  //       console.log('Storing Error', error);
+  //   })   
+
+  // Criar um objeto com os dados do registro
+  // const novoRegistro = {
+  //   chave1: "valor1",s
+  //   chave2: "valor2",
+  //   chave3: "valor3"
+  // };
+
+  // Adicionar o registro à base de dados
+  // database.ref(path).set(novoRegistro)
+  //   .then(() => {
+  //     console.log("Registro adicionado com sucesso!");
+  //   })
+  //   .catch((error) => {
+  //     console.error("Erro ao adicionar o registro:", error);
+  //   });
+
+
+  function writeUserData(uid, score, user) {
+
+    var data = {
+      user: uid,
+      name: user,
+      score: score,
+    };
+  
+
+    database.ref('score/'+uid).set(data)
+    .then(() => {
+      // Dados salvos com sucesso!
+      console.log('SIM');
+    })
+    .catch((error) => {
+      // Falha ao gravar os dados...
+      console.log('NAO');
+    });
+  }
 }
