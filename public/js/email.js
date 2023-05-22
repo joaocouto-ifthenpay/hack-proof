@@ -76,18 +76,20 @@ document.addEventListener("DOMContentLoaded", function () {
             .then((snapshot) => {
                 console.log(snapshot);
                 // Dados lidos com sucesso
-                let readData = snapshot.val();
-                console.log(uid);
-                console.log(readData.score);
-                let score = readData.score;
-                fetchData(score);
+                if(snapshot.val() != null) {
+                    console.log(snapshot.val().score);
+                    fetchData(snapshot.val().score);
+                } else {
+                    fetchData();
+                }
+                
             })
             .catch((error) => {
                 console.log('Erro ao ler os dados:', error);
             });
             
             
-            function fetchData(score) {
+            function fetchData(score=0) {
                 fetch('main.html')
                 .then(response => response.text())
                 .then(data => {
