@@ -2,6 +2,7 @@
  * Validação do formulário login
  */
 
+
 const usernameInput = document.getElementById("email");
 const passwordInput = document.getElementById("senha");
 const submitButton = document.getElementById("sign_in");
@@ -10,11 +11,11 @@ usernameInput.addEventListener("input", toggleButton);
 passwordInput.addEventListener("input", toggleButton);
 
 function toggleButton() {
-  if (usernameInput.value != "" && passwordInput.value != "") {
-    submitButton.disabled = false;
-  } else {
-    submitButton.disabled = true;
-  }
+    if (usernameInput.value != "" && passwordInput.value != "") {
+        submitButton.disabled = false;
+    } else {
+        submitButton.disabled = true;
+    }
 }
 
 
@@ -32,9 +33,9 @@ function createLogin() {
             result.user.updateProfile({
                 displayName: name
             });
-
+            console.log(result);
             alert('Conta criada com sucesso, ' + name + '!');
-            window.location.href = "./index.html";
+            location.reload();
 
         }).catch(function (error) {
             console.log(error);
@@ -45,12 +46,13 @@ function createLogin() {
  * Função para login
  */
 function loginEmail() {
-    var email = document.getElementById('email').value;
-    var senha = document.getElementById('senha').value;
-
+    var email = document.getElementById('login_email').value;
+    var senha = document.getElementById('login_password').value;
+    console.log(email);
     // Faz login com email e senha
     firebase.auth().signInWithEmailAndPassword(email, senha).then(() => {
         alert('Utilizador com sessão iniciada!');
+        location.reload();
     }).catch(error => {
         console.log('error', error);
     });
@@ -67,36 +69,39 @@ document.addEventListener("DOMContentLoaded", function () {
             //<a class='login__link' id='sign_out' onclick='logout()'>Sair</a></div></div";
             let uid = user.uid;
             const database = firebase.database();
-              
+
             // Obter uma referência para o caminho especificado
-            const ref = database.ref('score/'+uid);
+            const ref = database.ref('score/' + uid);
 
             // Ler os dados uma única vez
             ref.once('value')
-            .then((snapshot) => {
-                console.log(snapshot);
-                // Dados lidos com sucesso
-                if(snapshot.val() != null) {
-                    console.log(snapshot.val().score);
-                    fetchData(snapshot.val().score);
-                } else {
-                    fetchData();
-                }
-                
-            })
-            .catch((error) => {
-                console.log('Erro ao ler os dados:', error);
-            });
-            
-            
-            function fetchData(score=0) {
-                fetch('main.html')
-                .then(response => response.text())
-                .then(data => {
-                    console.log(data)
-                    document.getElementById('loginForm').innerHTML = "<div class='user-main'><div class='greeting'>Olá</div><div class='name'>" 
-                    + user.displayName + "!</div>" + " A tua atual pontuação: " + score + " ponto(s)" + data;
+                .then((snapshot) => {
+                    console.log(snapshot);
+                    // Dados lidos com sucesso
+                    if (snapshot.val() != null) {
+                        console.log(snapshot.val().score);
+                        fetchData(snapshot.val().score);
+                    } else {
+                        fetchData();
+                    }
+
+                })
+                .catch((error) => {
+                    console.log('Erro ao ler os dados:', error);
                 });
+
+
+            function fetchData(score = 0) {
+                fetch('main.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('welcome-login').innerHTML = "<h3 class='logo'>Bem-vindo(a) " + user.displayName + "! 👋</h3><small style='font-weight: 400; display: ruby-base-container' class='logo'>Pontuação: <div style='color:orange'>" + score + " ponto(s)</div></small>";
+                        document.getElementById('firebaseui-auth').innerHTML = "";
+                        document.getElementById('play').href = "maps";
+                        document.getElementById('logout').innerHTML = "<li><a onclick='logout()'><small>🚶‍♂️</small>Sair</a></li>";
+                        // document.getElementById('loginForm').innerHTML = "<div class='user-main'><div class='greeting'>Olá</div><div class='name'>" 
+                        // + user.displayName + "!</div>" + " A tua atual pontuação: " + score + " ponto(s)" + data;
+                    });
             }
             // document.getElementById('loading').style.display = 'none';
             // document.getElementById('loaded').style.display = 'block';
@@ -108,10 +113,10 @@ document.addEventListener("DOMContentLoaded", function () {
             // firebase.auth().useDeviceLanguage();
 
             // if (!user.emailVerified) {
-                // Envia um email para o utilizador verificar a conta dele.
-                // user.sendEmailVerification().then(() => {
-                //     alert('email de verificação enviado');
-                // });
+            // Envia um email para o utilizador verificar a conta dele.
+            // user.sendEmailVerification().then(() => {
+            //     alert('email de verificação enviado');
+            // });
             // };
 
             // Envia um email para mudança de password ao email passado por parametro.
@@ -133,9 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
     //         displayName: "João Couto",
     //         photoURL: ''
     //     });
-        // currentUser.updateEmail('jppcouto@live.com');
-        // currentUser.updatePassword('qwerty');
-        // currentUser.updatePhoneNumber('+5511xxxxxxxxx');
+    // currentUser.updateEmail('jppcouto@live.com');
+    // currentUser.updatePassword('qwerty');
+    // currentUser.updatePhoneNumber('+5511xxxxxxxxx');
     // }
 });
 

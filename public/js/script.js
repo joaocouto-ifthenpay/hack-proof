@@ -1,85 +1,43 @@
-//<div id="avatar"></div>
-// document.getElementById('avatar_user').innerHTML = "<img style='margin-top: -20%; margin-bottom: -1%;' src='https://lh3.googleusercontent.com/a/AGNmyxb0N9vO4S9IzBHye2m7PE_F27R3JO2KkiowZAmM=s96-c' alt='Avatar do utilizador' class='login__logo'>";
+'use strict';
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const btnShowModal = document.querySelector(".show-modal");
+const btnCloseModal = document.querySelector(".close-modal");
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js";
-import {
-    getAuth,
-    GoogleAuthProvider,
-    signInWithRedirect,
-    getRedirectResult,
-    signInWithPopup
-} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
+// open modal function
+const openModal = function () {
+    modal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+    setTimeout(function () {
+        modal.style.opacity = 1;
+        overlay.style.opacity = 1;
+    }, 1);
+}
+// close modal function
+const closeModal = function () {
+    modal.style.opacity = 0;
+    overlay.style.opacity = 0;
+    setTimeout(function () {
+        modal.classList.add("hidden");
+        overlay.classList.add("hidden");
+    }, 300);
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional´
-
-const firebaseConfig = {
-    /**
-     * Copy & Paste Firebase Credentials
-     */
-    apiKey: "AIzaSyAaKkjFltk24MHTAGLZctmXtUYblGXOxUE",
-
-    authDomain: "hack-proof-ispgaya.firebaseapp.com",
-  
-    databaseURL: "https://hack-proof-ispgaya-default-rtdb.firebaseio.com",
-  
-    projectId: "hack-proof-ispgaya",
-  
-    storageBucket: "hack-proof-ispgaya.appspot.com",
-  
-    messagingSenderId: "992546203502",
-  
-    appId: "1:992546203502:web:9f8c378287012e9ab7437f",
-  
-    measurementId: "G-WTME1N0V6Z"
-  
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const provider = new GoogleAuthProvider(app);
-const auth = getAuth(app);
-// const analytics = getAnalytics(app);
+// open modal by button click
+btnShowModal.addEventListener("click", openModal);
+// close modal by mouse click 
+btnCloseModal.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
 
-googleBtn.addEventListener('click', (e) => {
-    // signInWithRedirect(auth, provider);
-    // getRedirectResult(auth)
+// close modal by spressing esc key
+document.addEventListener('keydown', function (event) {
+    if (event.key == "Escape") {
+        closeModal();
+        closeModal();
+    }
+});
 
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            // The signed-in user info.
-            const user = result.user;
-            // name = displayName
-            // email = email
-            // photo = photoURL
-
-            alert(user.displayName);
-            // const avatar = document.createElement('div');
-            document.getElementById('ispgaya_logo').innerHTML = "<img src=" + user.photoURL + " alt='Avatar do utilizador' class='login__logo'>";
-
-        }).catch((error) => {
-            // Handle Errors here.
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // The email of the user's account used.
-            const email = error.email;
-            // The AuthCredential type that was used.
-            const credential = GoogleAuthProvider.credentialFromError(error);
-
-            alert(errorMessage);
-        });
+$('.message a').click(function () {
+    $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
 });

@@ -2,94 +2,132 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HackProof</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="css/main.css">
     <!-- Import Resources -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-    <!-- Import Firebase SDK -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+    <title>Hack🛡️Proof</title>
+
 </head>
 
 <body>
-    <main>
-        <section class="wallpaper">
-            <section class="login">
-                <div action="" id="loginForm">
-                    <div class="wrapper">
-                        <img id="ispgaya_logo" src="./images/logo_ispgaya.png" class="login__logo">
-                        <div id="avatar_user"></div>
-                        <h1 class="login__title">Fazer login</h1>
-    
-                        <label class="login__label">
-                            <span>Utilizador</span>
-                            <input type="text" id="email" name="email" class="input">
-                        </label>
-    
-                        <label class="login__label">
-                            <span>Senha</span>
-                            <input type="password" id="senha" name="senha" class="input">
-                        </label>
-                        
-                        <div class="login__icons">
-                            <!-- <button type="button" class="icons__button">
-                                <img src="./images/facebook-icon.png" alt="facebok">
-                            </button> -->
-    
-                            <!-- <button id="googleBtn" type="button" class="icons__button">
-                                <img src="./images/google-icon.png" alt="google">
-                            </button> -->
-    
-                            <!-- <button type="button" class="icons__button">
-                                <img src="./images/apple-icon.png" alt="apple">
-                            </button> -->
-                        </div>
-    
-                    </div>
-    
-                    <div class="wrapper">
-                        <button type="submit" class="login__button" id="sign_in" onclick="loginEmail()">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path
-                                    d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z" />
-                            </svg>
-                        </button>
-                        <div style="margin-bottom: 10%;" id="firebaseui-auth"></div>
-                        <a href="./create.html" class="login__link" id="sign_up">criar conta</a>
-                        <a href="#" class="login__link" id="sign_out" onclick="logout()">não consegue iniciar sessão?</a>
-                    </div>
-                </div>
-            </section></section>
-    </main>
+    <section class="showcase">
+        <header>
+            <h2 id='welcome-login' class="logo"></h2>
+            <div class="toggle"></div>
+        </header>
 
 
+        <video src="videos/menu_girl.mp4" muted loop autoplay></video>
+        <!-- styled to give a bright overlay over the video -->
+
+        <div class="overlay"></div>
+
+
+        <div class="text">
+            <h2>Hack🛡️Proof</h2>
+            <h4 id="login-slogan">Protege-te contra os hackers!</h4>
+            <p>Escolhe a melhor carta para parar o ataque dos hackers.</p>
+            <a id="play" class="show-modal">Jogar agora 🎮</a>
+            <!-- <button class="show-modal">Show modal 1</button> -->
+        </div>
+
+        <div class="modal hidden">
+            <button class="close-modal">&times;</button>
+            <h1>Autenticação</h1>
+            <p>
+                Para poderes jogar necessitas de estar com a sessão iniciada.
+            </p>
+            <div class="form">
+                <form class="register-form">
+                    <input type="text" id="name" placeholder="Nome" />
+                    <input type="text" id="age" placeholder="Idade" />
+                    <input type="text" id="email" placeholder="E-mail" />
+                    <input type="password" id="senha" placeholder="Senha" />
+                    <button class="submit" onclick="createLogin()">Registar</button>
+                    <p class="message">Já estás registado? <a href="#">Inicia Sessão</a></p>
+                </form>
+                <form class="login-form">
+                    <input type="text" id="login_email" placeholder="E-mail" />
+                    <input type="password" id="login_password" placeholder="Senha" />
+                    <button class="submit" id="sign_in" onclick="loginEmail()">Avançar</button>
+                    <p class="message">Não estás registado? <a href="#">Cria uma conta</a></p>
+
+                </form>
+
+            </div>
+        </div>
+
+        <div class="overlay hidden"></div>
+
+        <div class="social">
+            <li>
+                <h2 class="logo"><img src="images/logo_ispgaya.png" height="10%" width="10%"></h2>
+            </li>
+            <!-- <li><a><img src="https://i.ibb.co/x7P24fL/facebook.png" alt=""></a></li>
+            <li><a><img src="https://i.ibb.co/Wnxq2Nq/twitter.png" alt=""></a></li>
+            <li><a><img src="https://i.ibb.co/ySwtH4B/instagram.png" alt=""></a></li> -->
+
+        </div>
+        <div id="firebaseui-auth" style="opacity: 50%;">
+            <h3 id="firebaseui-auth-title" style="margin-left:10%;" class="logo">Login rápido</h3>
+        </div>
+    </section>
+
+
+    <div class="menu">
+        <ul>
+            <li><a href="maps/"><small>🕹️</small>Jogar</a></li>
+            <!-- <li><a href="#"><small>📋</small>Registar </a></li> -->
+            <li><a href="#"><small>💻</small>Sobre</a></li>
+            <li><a href="#"><small>🏆</small>Ranking </a></li>
+            <li><a href="#"><small>🧑‍💻</small>Créditos</a></li>
+            <li id="logout"></li>
+        </ul>
+    </div>
+
+
+    <script>
+        const menuToggle = document.querySelector('.toggle');
+        const showcase = document.querySelector('.showcase');
+
+        // Toggle the class of 'active' on both elements when toggle sandwich is clicked. Meaning if 'active' is applied, it's going to remove it and if it's not, it's going to add it. When toggle sandwich is clicked - the 2 elements will display behaviours. showcase is going to move over 300px and menuToggle is going to change from a sandwich menu to an X.
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            showcase.classList.toggle('active');
+        });
+    </script>
     <!-- Firebase App is always required and must be first -->
-  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
-  <!-- Add additional services that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/3.5.1/firebase-ui-auth__pt.js"></script>
 
     <!-- Inicializa o firebase -->
     <script>
         var config = {
-             apiKey: "AIzaSyAaKkjFltk24MHTAGLZctmXtUYblGXOxUE",
-             authDomain: "hack-proof-ispgaya.firebaseapp.com",
-             databaseURL: "https://hack-proof-ispgaya-default-rtdb.firebaseio.com",
-             projectId: "hack-proof-ispgaya",
-             storageBucket: "hack-proof-ispgaya.appspot.com",
-             messagingSenderId: "992546203502"
+            apiKey: "AIzaSyAaKkjFltk24MHTAGLZctmXtUYblGXOxUE",
+            authDomain: "hack-proof-ispgaya.firebaseapp.com",
+            databaseURL: "https://hack-proof-ispgaya-default-rtdb.firebaseio.com",
+            projectId: "hack-proof-ispgaya",
+            storageBucket: "hack-proof-ispgaya.appspot.com",
+            messagingSenderId: "992546203502"
         };
         firebase.initializeApp(config);
     </script>
-    <script src="./js/app.js"></script>
-    <script src="./js/email.js"></script>
-    <script src="./js/facebook.js"></script>
-    <script src="./js/github.js"></script>
-    <script src="./js/google.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/email.js"></script>
+    <script src="js/facebook.js"></script>
+    <script src="js/github.js"></script>
+    <script src="js/google.js"></script>
 </body>
 
 </html>
