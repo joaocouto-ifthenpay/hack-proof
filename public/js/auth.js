@@ -1,8 +1,6 @@
 /**
  * Validação do formulário login
  */
-
-
 const usernameInput = document.getElementById("email");
 const passwordInput = document.getElementById("senha");
 const submitButton = document.getElementById("sign_in");
@@ -70,10 +68,10 @@ document.addEventListener("DOMContentLoaded", function () {
             let uid = user.uid;
             const database = firebase.database();
 
-            // Obter uma referência para o caminho especificado
+            // Obtem referência para o caminho especificado
             const ref = database.ref('score/' + uid);
 
-            // Ler os dados uma única vez
+            // Lê dados uma única vez
             ref.once('value')
                 .then((snapshot) => {
                     console.log(snapshot);
@@ -143,14 +141,3 @@ document.addEventListener("DOMContentLoaded", function () {
     // currentUser.updatePhoneNumber('+5511xxxxxxxxx');
     // }
 });
-
-/**
- * Remove utilizador
- */
-function removerUtilizador() {
-    if (currentUser) {
-        currentUser.delete().then(() => {
-            alert('Utilizador foi removido!');
-        });
-    }
-}

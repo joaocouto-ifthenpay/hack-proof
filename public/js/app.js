@@ -1,9 +1,19 @@
 function logout() {
-    // Faço um logout do meu usuário (saio da aplicação).
     firebase.auth().signOut().then(() => {
         alert("Utilizador encerrou sessão");
         location.reload();
     })
+}
+
+/**
+ * Remove utilizador
+ */
+function removerUtilizador() {
+    if (currentUser) {
+        currentUser.delete().then(() => {
+            alert('Utilizador foi removido!');
+        });
+    }
 }
 
 /**

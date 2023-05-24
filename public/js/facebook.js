@@ -9,6 +9,6 @@ function loginFacebook() {
         console.log('erro', erro);
     })
 }
-// SERVINDO A APLICAÇÃO VIA NPM
+// SERVE A APLICAÇÃO VIA NPM
 // http-server: npm i -g http-server
 // cd até/pasta/do/arquivo; http-server
