@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     .then(data => {
                         document.getElementById('welcome-login').innerHTML = "<h3 class='logo'>Bem-vindo(a) " + user.displayName + "! 👋</h3><small style='font-weight: 400; display: ruby-base-container' class='logo'>Pontuação: <div style='color:orange'>" + score + " ponto(s)</div></small>";
                         document.getElementById('firebaseui-auth').innerHTML = "";
-                        document.getElementById('play').href = "maps";
+                        document.getElementById('play').href = "maps.html";
                         document.getElementById('logout').innerHTML = "<li><a onclick='logout()'><small>🚶‍♂️</small>Sair</a></li>";
                         // document.getElementById('loginForm').innerHTML = "<div class='user-main'><div class='greeting'>Olá</div><div class='name'>" 
                         // + user.displayName + "!</div>" + " A tua atual pontuação: " + score + " ponto(s)" + data;

@@ -23,7 +23,7 @@
     </div>
     <div class=" hacker-area">
       <video autoplay loop muted id="videoBackgroundLeft">
-        <source src="./video/hacker.mp4" type="video/mp4" />
+        <source src="../videos/hacker.mp4" type="video/mp4" />
       </video>
       <div class="stats hacker-stats">
         <div class="life-bar">
@@ -44,7 +44,7 @@
 
     <div class="player-area">
       <video autoplay loop muted id="videoBackgroundRight" width="50%" height="50%">
-        <source src="./video/player.mp4" type="video/mp4" />
+        <source src="../video/player.mp4" type="video/mp4" />
       </video>
       <div class="stats player-stats">
         <div class="life-bar">
@@ -94,17 +94,7 @@
 
 
   <!-- Inicializa o firebase -->
-  <script>
-    var config = {
-      apiKey: "AIzaSyAaKkjFltk24MHTAGLZctmXtUYblGXOxUE",
-      authDomain: "hack-proof-ispgaya.firebaseapp.com",
-      databaseURL: "https://hack-proof-ispgaya-default-rtdb.firebaseio.com",
-      projectId: "hack-proof-ispgaya",
-      storageBucket: "hack-proof-ispgaya.appspot.com",
-      messagingSenderId: "992546203502"
-    };
-    firebase.initializeApp(config);
-  </script>
+  <script src="../js/config.js"></script>
   <script src="scripts/login.js"></script>
   <script src="scripts/script.js"></script>
 </body>

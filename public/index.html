@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <link type="text/css" rel="stylesheet" href="css/main.css">
-    <!-- Import Resources -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
-    <title>Hack🛡️Proof</title>
 
+    <!-- Importar recursos -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+    <title>HackProof | ISPGAYA</title>
 </head>
 
 <body>
@@ -21,19 +21,16 @@
             <div class="toggle"></div>
         </header>
 
-
         <video src="videos/menu_girl.mp4" muted loop autoplay></video>
-        <!-- styled to give a bright overlay over the video -->
-
+        
+        <!-- Esta classe aplica filtro que se sobrepõe ao vídeo de fundo. -->
         <div class="overlay"></div>
-
-
+        
         <div class="text">
             <h2>Hack🛡️Proof</h2>
             <h4 id="login-slogan">Protege-te contra os hackers!</h4>
             <p>Escolhe a melhor carta para parar o ataque dos hackers.</p>
             <a id="play" class="show-modal">Jogar agora 🎮</a>
-            <!-- <button class="show-modal">Show modal 1</button> -->
         </div>
 
         <div class="modal hidden">
@@ -58,7 +55,6 @@
                     <p class="message">Não estás registado? <a href="#">Cria uma conta</a></p>
 
                 </form>
-
             </div>
         </div>
 
@@ -71,18 +67,15 @@
             <!-- <li><a><img src="https://i.ibb.co/x7P24fL/facebook.png" alt=""></a></li>
             <li><a><img src="https://i.ibb.co/Wnxq2Nq/twitter.png" alt=""></a></li>
             <li><a><img src="https://i.ibb.co/ySwtH4B/instagram.png" alt=""></a></li> -->
-
         </div>
         <div id="firebaseui-auth" style="opacity: 50%;">
             <h3 id="firebaseui-auth-title" style="margin-left:10%;" class="logo">Login rápido</h3>
         </div>
     </section>
 
-
     <div class="menu">
         <ul>
-            <li><a href="maps/"><small>🕹️</small>Jogar</a></li>
-            <!-- <li><a href="#"><small>📋</small>Registar </a></li> -->
+            <li><a href="maps.html"><small>🕹️</small>Jogar</a></li>
             <li><a href="#"><small>💻</small>Sobre</a></li>
             <li><a href="#"><small>🏆</small>Ranking </a></li>
             <li><a href="#"><small>🧑‍💻</small>Créditos</a></li>
@@ -90,38 +83,29 @@
         </ul>
     </div>
 
-
+    <!--
+        Alterna a classe 'active' em ambos os elementos quando o botão de alternar for clicado.
+        Isso significa que caso a classe 'active' for aplicada, esta será removida e caso não esteja acionada, será adicionada.
+        Quando o botão de alternar for clicado, os dois elementos exibirão comportamentos.
+        O elemento Showcase irá mover-se cerca de 300px e o elemento menuToggle vai mudar de um menu de sanduíche para um X.
+    -->
     <script>
         const menuToggle = document.querySelector('.toggle');
         const showcase = document.querySelector('.showcase');
-
-        // Toggle the class of 'active' on both elements when toggle sandwich is clicked. Meaning if 'active' is applied, it's going to remove it and if it's not, it's going to add it. When toggle sandwich is clicked - the 2 elements will display behaviours. showcase is going to move over 300px and menuToggle is going to change from a sandwich menu to an X.
 
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             showcase.classList.toggle('active');
         });
     </script>
-    <!-- Firebase App is always required and must be first -->
+
+    <!-- O aplicativo Firebase é sempre necessário importar -->
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
-    <!-- Add additional services that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/3.5.1/firebase-ui-auth__pt.js"></script>
 
-    <!-- Inicializa o firebase -->
-    <script>
-        var config = {
-            apiKey: "AIzaSyAaKkjFltk24MHTAGLZctmXtUYblGXOxUE",
-            authDomain: "hack-proof-ispgaya.firebaseapp.com",
-            databaseURL: "https://hack-proof-ispgaya-default-rtdb.firebaseio.com",
-            projectId: "hack-proof-ispgaya",
-            storageBucket: "hack-proof-ispgaya.appspot.com",
-            messagingSenderId: "992546203502"
-        };
-        firebase.initializeApp(config);
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="js/config.js"></script>
     <script src="js/script.js"></script>
     <script src="js/app.js"></script>
     <script src="js/email.js"></script>
