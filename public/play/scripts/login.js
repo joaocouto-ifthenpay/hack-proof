@@ -11,10 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             document.getElementById("player").innerText = user.displayName;
 
-
         } else {
             alert("Não há utilizadores com sessão iniciada");
-
+            window.location.href = '../index.html';
         }
     });
 
