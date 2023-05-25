@@ -1,4 +1,4 @@
-var audioObj = new Audio("playing.mp3");
+var audioObj = new Audio("../audio/playing.mp3");
 // Set starting life totals here
 var playerLife = 5;
 var hackerLife = 5;
@@ -121,7 +121,7 @@ function gameOver(winner, score) {
   document.querySelector(".winner-section").classList.remove("hacker-color");
 
   if (winner == "Hacker") {
-    let evilAudio = new Audio("evil-laugh.mp3");
+    let evilAudio = new Audio("../audio/evil-laugh.mp3");
     evilAudio.play();
     document.querySelector(".winner-message").innerHTML = hackerWinnerMessage;
     document.querySelector(".winner-section").classList.add("hacker-color");
@@ -129,7 +129,7 @@ function gameOver(winner, score) {
 
     updateFinalScore(score);
   } else {
-    let ohNoAudio = new Audio("Oh-no-sound-effect.mp3");
+    let ohNoAudio = new Audio("../audio/Oh-no-sound-effect.mp3");
     ohNoAudio.play();
     document.querySelector(".winner-message").innerHTML = playerWinnerMessage;
     document.querySelector(".winner-section").classList.add("player-color");

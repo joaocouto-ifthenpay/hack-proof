@@ -538,3 +538,9 @@ button[disabled=true] {
     font-size: 10px;
   }
 }
+
+@media(max-width: 425px) {
+  video {
+      display: none;
+  }
+}

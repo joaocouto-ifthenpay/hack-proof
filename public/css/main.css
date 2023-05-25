@@ -94,6 +94,7 @@ body {
     /* text-transform: uppercase;
     cursor: pointer; */
     opacity: 80%;
+    min-width: 100px;
 }
 
 .showcase video {
@@ -229,7 +230,7 @@ body {
 
 .menu ul li a {
     text-decoration: none;
-    font-size: 30px;
+    font-size: 25px;
     color: rgba(255, 255, 255, 0.747)
 }
 
@@ -422,6 +423,14 @@ body {
     .text h3 {
         font-size: 2em;
     }
+
+    .modal {
+        width: 90%;
+        height: 90%;
+        top: 5%;
+        left: 5%;
+        transform: translate(0, 0);
+    }
 }
 
 
@@ -434,11 +443,23 @@ body {
     .showcase header {
         padding: 20px 100px;
     }
+
 }
 
 
 
 @media(max-width: 425px) {
+    video {
+        display: none;
+    }
+
+    #firebaseui-auth {
+        display: none;
+    }
+
+    /* .social {
+        display: none;
+    } */
 
     .text h2 {
         font-size: 3.2em;

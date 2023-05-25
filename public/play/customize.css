@@ -8,7 +8,7 @@
 
 /* .player-area {
   background-color: #000;
-  background-image: url(images/chip.svg);
+  background-image: url(../images/game/chip.svg);
   box-shadow: inset -200px 0px 1000px  #B51BAB;
 } */
 
@@ -17,7 +17,7 @@
 } */
 
 /* .player-card .power {
-  background-image: url(images/shield.svg);
+  background-image: url(../images/game/shield.svg);
 } */
 
 /* Hacker Styles */
@@ -28,12 +28,12 @@
 
 /* .hacker-area {
   background-color: #000;
-  background-image: url(images/chip.svg);
+  background-image: url(../images/game/chip.svg);
   box-shadow: inset 200px 0px 1000px  #B51BAB;
 } */
 
 /* .hacker-card .power {
-  background-image: url(images/skull.svg);
+  background-image: url(../images/game/skull.svg);
 } */
 
 .player-color {
@@ -45,7 +45,7 @@
 }
 
 .player-card .power {
-  background-image: url(images/shield.svg);
+  background-image: url(../images/game/shield.svg);
 }
 
 /* Hacker Styles */
@@ -59,7 +59,7 @@
 }
 
 .hacker-card .power {
-  background-image: url(images/skull.svg);
+  background-image: url(../images/game/skull.svg);
 }
 
 
