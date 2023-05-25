@@ -24,6 +24,7 @@ function createLogin() {
     var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;
     var senha = document.getElementById('senha').value;
+    var senha = document.getElementById('idade').value;
 
     firebase.auth().createUserWithEmailAndPassword(email, senha)
         .then(function (result) {

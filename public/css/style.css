@@ -224,7 +224,7 @@ main {
 }
 
 .choose-maps {
-    padding: 60px 120px;
+    padding: 80px 120px;
     display: grid;
     grid-template-columns: repeat(3, 200px);
     gap: 24px;
@@ -245,9 +245,17 @@ main {
     height: 200px;
     display: inline-block;
     margin: 0 auto;
-    background-color: gray;
+    background-color: #45a1ef;
     border-radius: 50px;
     cursor: pointer;
+}
+
+.maps-content:hover {
+    background-color: #45b8ef;
+}
+
+.maps-content.locked {
+    pointer-events: none;
 }
 
 .map-image {
@@ -256,10 +264,11 @@ main {
 }
 
 .map-image img{
-    width: 150px;
+    width: auto;
     height: 150px;
     border-radius: 50px;
-    margin: 25px;
+    margin: 25px auto;
+    display: block;
 }
 
 .map-image.locked img {
@@ -271,14 +280,15 @@ main {
 }
 
 .map-image.locked {
-    background-image: url('../images/maps/locked.png');
+    background-image: url('../images/maps/lock-icon.png');
     background-size: cover;
     background-position: center;
     flex: 1;
-    width: 150px;
+    width: auto;
+    max-width: 106px;
     height: 150px;
     border-radius: 50px;
-    margin: 25px;
+    margin: 25px auto;
 }
 
 .maps-page {
@@ -286,7 +296,7 @@ main {
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    background-image: url('../images/wallpaper.jpg');
+    background: linear-gradient(to bottom, #007bff, #06066e);
     background-size: cover;
     background-position: center;
     flex: 1;
@@ -309,4 +319,25 @@ section.title .label {
     font-size: 32px;
     padding: 12px 20px;
     color: white;
+}
+
+.back-button {
+    position: absolute;
+    left: 60px;
+    top: 60px;
+}
+
+.back-button a {
+    color: white;
+    font-size: 12px;
+    text-decoration: unset;
+}
+
+.back-button a .text{
+    vertical-align: bottom;
+}
+
+.back-button a .text:hover{
+    text-decoration: underline;
+    padding-bottom: 2px;
 }

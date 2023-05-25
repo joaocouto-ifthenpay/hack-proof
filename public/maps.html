@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HackProof</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <!-- Import Firebase SDK -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
 </head>
@@ -18,40 +18,46 @@
 <body>
     <main class="maps-page">
         <section class="title">
+                <div class="back-button">
+                        <a href="#" onclick="history.back()">
+                                <span class="arrow"><</span> 
+                                <span class="text">Voltar</span>
+                        </a>
+                </div>
                 <div class="label">
-                        <span>Choose Your Map</span>
+                        <span>Escolhe um Nível de hacker</span>
                 </div>
         </section>
         <section class="all-maps">
                 <div id="choose_maps" class="choose-maps">
                         <div class="maps-content">
                                 <div class="map-image">
-                                        <a href="../play/index.html?map=1"><img src="../images/maps/mapa1.jpg" alt=""></a>
+                                        <a href="play/index.html?map=1"><img src="images/maps/unlocked-icon.png" alt=""></a>
                                 </div>
                         </div>
                         <div class="maps-content">
                                 <div class="map-image">
-                                        <a href="../play/index.html?map=2"><img src="../images/maps/mapa2.jpg" alt=""></a>
+                                        <a href="play/index.html?map=2"><img src="images/maps/unlocked-icon.png" alt=""></a>
                                 </div>
                         </div>
-                        <div class="maps-content">
+                        <div class="maps-content locked">
                                 <div class="map-image locked">
-                                        <a href="../play/index.html?map=3"><img src="../images/maps/mapa3.jpg" alt=""></a>
+                                        <a href="play/index.html?map=3"><img src="images/maps/unlocked-icon.png" alt=""></a>
                                 </div>
                         </div>
-                        <div class="maps-content">
+                        <div class="maps-content locked">
                                 <div class="map-image locked">
-                                        <a href="../play/index.html?map=4"><img src="../images/maps/mapa4.jpg" alt=""></a>
+                                        <a href="play/index.html?map=4"><img src="images/maps/unlocked-icon.png" alt=""></a>
                                 </div>
                         </div>
-                        <div class="maps-content">
+                        <div class="maps-content locked">
                                 <div class="map-image locked">
-                                        <a href="../play/index.html?map=5"><img src="../images/maps/mapa5.jpg" alt=""></a>
+                                        <a href="play/index.html?map=5"><img src="images/maps/unlocked-icon.png" alt=""></a>
                                 </div>
                         </div>
-                        <div class="maps-content">
+                        <div class="maps-content locked">
                                 <div class="map-image locked">
-                                        <a href="../play/index.html?map=6"><img src="../images/maps/mapa6.jpg" alt=""></a>
+                                        <a href="play/index.html?map=6"><img src="images/maps/unlocked-icon.png" alt=""></a>
                                 </div>
                         </div>
                 </div>

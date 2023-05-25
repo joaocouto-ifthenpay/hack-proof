@@ -95,6 +95,7 @@ h1 strong {
   height: 90px;
   position: relative;
   font-size: larger;
+  border-radius: 5px;
 }
 
 .life-left {
@@ -105,6 +106,7 @@ h1 strong {
   width: 100%;
   height: 50%;
   transition: height .25s ease-out;
+  border-radius: 5px;
 }
 
 .stats {
@@ -310,6 +312,10 @@ button[disabled=true] {
   transform: rotate(-7deg);
 }
 
+.game-board.card-selected .player-card {
+  pointer-events: none;
+}
+
 .game-board:not(.card-selected) .player-card:hover:after {
   display: block;
   animation: sheen .35s linear 1;
@@ -416,6 +422,7 @@ button[disabled=true] {
 .game-board:not(.card-selected) .player-area .card:not(.played-card):hover {
   transform: translateY(-10px);
   box-shadow: 0px 15px 15px rgba(0, 0, 0, .3);
+  border-radius: 10px;
 }
 
 .player-card.played-card {
