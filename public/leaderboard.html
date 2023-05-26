@@ -9,8 +9,10 @@
     <!-- Importar recursos -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
     <link type="text/css" rel="stylesheet" href="css/main.css">
+    <link type="text/css" rel="stylesheet" href="css/leaderboard.css">
     <title>HackProof | ISPGAYA</title>
 </head>
 
@@ -21,40 +23,28 @@
             <div class="toggle"></div>
         </header>
 
-        <video src="videos/menu_girl.mp4" muted loop autoplay></video>
-        
+        <!-- <video src="videos/menu_girl.mp4" muted loop autoplay></video> -->
+
         <!-- Esta classe aplica filtro que se sobrepõe ao vídeo de fundo. -->
         <div class="overlay"></div>
-        
+
         <div class="text">
-            <h2>Hack🛡️Proof</h2>
-            <h4 id="login-slogan">Protege-te contra os hackers!</h4>
-            <p>Escolhe a melhor carta para parar o ataque dos hackers.</p>
-            <a id="play" class="show-modal">Jogar agora 🎮</a>
-        </div>
-
-        <div class="modal hidden">
-            <button class="close-modal">&times;</button>
-            <h1>Autenticação</h1>
-            <p>
-                Para poderes jogar necessitas de estar com a sessão iniciada.
-            </p>
-            <div class="form">
-                <form class="register-form">
-                    <input type="text" id="name" placeholder="Nome" />
-                    <input type="text" id="idade" placeholder="Idade" />
-                    <input type="text" id="email" placeholder="E-mail" />
-                    <input type="password" id="senha" placeholder="Senha" />
-                    <button class="submit" onclick="createLogin()">Registar</button>
-                    <p class="message">Já estás registado? <a href="#">Inicia Sessão</a></p>
-                </form>
-                <form class="login-form">
-                    <input type="text" id="login_email" placeholder="E-mail" />
-                    <input type="password" id="login_password" placeholder="Senha" />
-                    <button class="submit" id="sign_in" onclick="loginEmail()">Avançar</button>
-                    <p class="message">Não estás registado? <a href="#">Cria uma conta</a></p>
-
-                </form>
+            <h3>Classificação</h3>
+            <p>Descobre quem são os jogadores com as 5 melhores prestações:</p>
+            <div class="leaderboard-container">
+                <table>
+                    <tr>
+                        <th>
+                            Posição
+                        </th>
+                        <th>
+                            Jogador
+                        </th>
+                        <th>
+                            Pontuação
+                        </th>
+                    </tr>
+                </table>
             </div>
         </div>
 
@@ -64,12 +54,6 @@
             <li>
                 <h2 class="logo"><img src="images/logo_ispgaya.png" height="10%" width="10%"></h2>
             </li>
-            <!-- <li><a><img src="https://i.ibb.co/x7P24fL/facebook.png" alt=""></a></li>
-            <li><a><img src="https://i.ibb.co/Wnxq2Nq/twitter.png" alt=""></a></li>
-            <li><a><img src="https://i.ibb.co/ySwtH4B/instagram.png" alt=""></a></li> -->
-        </div>
-        <div id="firebaseui-auth" style="opacity: 50%;">
-            <h3 id="firebaseui-auth-title" style="margin-left:10%;" class="logo">Login rápido</h3>
         </div>
     </section>
 
@@ -100,10 +84,12 @@
         });
 
         // $(function(){ 
-        //     $("footer").load("footer.html");  
+        //     $("footer").load("footer.html");
         // });
     </script>
     <script src="js/scripts.js"></script>
+    <script src="js/leaderboard.js"></script>
 </body>
+
 
 </html>

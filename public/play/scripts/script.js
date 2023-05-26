@@ -299,19 +299,31 @@ function revealCards() {
 function updateFinalScore(score) {
 
   // Obter uma referência para a base de dados
-  
-
   const database = firebase.database();
-
-
-  // Definir o caminho onde deseja adicionar o registro
-  const path = 'caminho/para/o/seu/registro'; // Substitua pelo seu próprio caminho
 
   let user = firebase.auth().currentUser;
   let uid = user.uid;
+  let path = 'score/'+uid;
+
+  var data = {
+    user: uid,
+    name: user.displayName,
+    score: score,
+  };
+
+  database.ref(path).set(data)
+  .then(() => {
+    // Dados salvos com sucesso!
+    console.log('SIM');
+  })
+  .catch((error) => {
+    // Falha ao gravar os dados...
+    console.log('NAO');
+  });
+
   // let yourdata = { emailid: uid, msgContent: 'Score:'+score, name: user.displayName};
 
-  writeUserData(uid, score, user.displayName);
+  // writeUserData(uid, score, user.displayName);
 
   // firebase.database().ref('contactForm').child(uid).set(yourdata)
   //   .then((data) => {
@@ -338,23 +350,4 @@ function updateFinalScore(score) {
   //   });
 
 
-  function writeUserData(uid, score, user) {
-
-    var data = {
-      user: uid,
-      name: user,
-      score: score,
-    };
-  
-
-    database.ref('score/'+uid).set(data)
-    .then(() => {
-      // Dados salvos com sucesso!
-      console.log('SIM');
-    })
-    .catch((error) => {
-      // Falha ao gravar os dados...
-      console.log('NAO');
-    });
-  }
 }
