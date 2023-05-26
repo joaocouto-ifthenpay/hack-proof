@@ -23,9 +23,6 @@
             <div class="toggle"></div>
         </header>
 
-        <!-- <video src="videos/menu_girl.mp4" muted loop autoplay></video> -->
-
-        <!-- Esta classe aplica filtro que se sobrepõe ao vídeo de fundo. -->
         <div class="overlay"></div>
 
         <div class="text">
@@ -56,40 +53,9 @@
             </li>
         </div>
     </section>
-
-    <div class="menu">
-        <ul>
-            <li><a href="index.html"><small>#️⃣</small>Início</a></li>
-            <li><a href="maps.html"><small>🕹️</small>Jogar</a></li>
-            <li><a href="#"><small>💻</small>Sobre</a></li>
-            <li><a href="#"><small>🏆</small>Classificação </a></li>
-            <li><a href="#"><small>🧑‍💻</small>Créditos</a></li>
-            <li id="logout"></li>
-        </ul>
-    </div>
-    <!-- <footer></footer> -->
-    <!--
-        Alterna a classe 'active' em ambos os elementos quando o botão de alternar for clicado.
-        Isso significa que caso a classe 'active' for aplicada, esta será removida e caso não esteja acionada, será adicionada.
-        Quando o botão de alternar for clicado, os dois elementos exibirão comportamentos.
-        O elemento Showcase irá mover-se cerca de 300px e o elemento menuToggle vai mudar de um menu de sanduíche para um X.
-    -->
-    <script>
-        const menuToggle = document.querySelector('.toggle');
-        const showcase = document.querySelector('.showcase');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            showcase.classList.toggle('active');
-        });
-
-        // $(function(){ 
-        //     $("footer").load("footer.html");
-        // });
-    </script>
+    <div id="menu"></div>
     <script src="js/scripts.js"></script>
     <script src="js/leaderboard.js"></script>
 </body>
-
 
 </html>
