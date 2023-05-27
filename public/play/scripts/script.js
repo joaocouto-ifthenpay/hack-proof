@@ -4,8 +4,8 @@ var playerLife = 5;
 var hackerLife = 5;
 
 // Message when the game is over
-var hackerWinnerMessage = "Game over: You got hacked!";
-var playerWinnerMessage = "You defeated the hacker!";
+var hackerWinnerMessage = "Fim do jogo! Foste hackeado!";
+var playerWinnerMessage = "Parabéns! Derrotaste o hacker!";
 
 
 // Game code starts here
@@ -133,9 +133,9 @@ function gameOver(winner, score) {
     ohNoAudio.play();
     document.querySelector(".winner-message").innerHTML = playerWinnerMessage;
     document.querySelector(".winner-section").classList.add("player-color");
-
-    updateFinalScore(score);
   }
+  document.querySelector(".next-turn").innerHTML = none;
+  updateFinalScore(score);
 }
 
 
@@ -303,7 +303,7 @@ function updateFinalScore(score) {
 
   let user = firebase.auth().currentUser;
   let uid = user.uid;
-  let path = 'score/'+uid;
+  let path = 'score/' + uid;
 
   var data = {
     user: uid,
@@ -312,14 +312,14 @@ function updateFinalScore(score) {
   };
 
   database.ref(path).set(data)
-  .then(() => {
-    // Dados salvos com sucesso!
-    console.log('SIM');
-  })
-  .catch((error) => {
-    // Falha ao gravar os dados...
-    console.log('NAO');
-  });
+    .then(() => {
+      // Dados salvos com sucesso!
+      console.log('SIM');
+    })
+    .catch((error) => {
+      // Falha ao gravar os dados...
+      console.log('NAO');
+    });
 
   // let yourdata = { emailid: uid, msgContent: 'Score:'+score, name: user.displayName};
 
