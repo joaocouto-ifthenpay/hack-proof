@@ -7,7 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Observa se há um utilizador e mudanças na autenticação (login e logout)
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-            // alert(user.displayName);
+
+            if (!user.displayName) {
+                user.displayName = 'Jogador';
+            }
 
             document.getElementById("player").innerText = user.displayName;
 

@@ -1,14 +1,13 @@
 var audioObj = new Audio("../audio/playing.mp3");
-// Set starting life totals here
+// Definir os totais de vida inicial
 var playerLife = 5;
 var hackerLife = 5;
 
-// Message when the game is over
+// Mensagem quando o jogo acaba
 var hackerWinnerMessage = "Fim do jogo! Foste hackeado!";
 var playerWinnerMessage = "Parabéns! Derrotaste o hacker!";
 
 
-// Game code starts here
 var playerStartLife = parseInt(playerLife);
 var hackerStartLife = parseInt(hackerLife);
 
@@ -21,7 +20,7 @@ document.querySelector(".game-board").classList.add("before-game");
 
 var allCardElements = document.querySelectorAll(".card");
 
-// Adds click handler to all player card elements
+// Adiciona o click handler a todos os elementos de cartas do jogador
 for (var i = 0; i < allCardElements.length; i++) {
   var card = allCardElements[i];
   if (card.classList.contains("player-card")) {
@@ -32,7 +31,7 @@ for (var i = 0; i < allCardElements.length; i++) {
 }
 
 
-// When a card is clicked
+// Quando uma carta é clicada
 function cardClicked(cardEl) {
 
   if (cardSelected) { return; }
@@ -42,29 +41,29 @@ function cardClicked(cardEl) {
 
   document.querySelector(".game-board").classList.add("card-selected");
 
-  // Wait 500ms to reveal the hacker power
+  // Espera 500ms para revelar o poder do hacker
   setTimeout(function () {
     revealHackerPower();
   }, 500)
 
-  // Wait 750ms to reveal the player power
+  // Espera 750ms para revelar o poder do jogador
   setTimeout(function () {
     revealPlayerPower();
   }, 800)
 
-  // Wait 1250ms to compare the card scoers
+  // Espera 1250ms para comparar as pontuações das cartas
   setTimeout(function () {
     compareCards();
   }, 1400);
 }
 
-// Shows the power level on the player card
+// Mostra o nível de poder na carta do jogador
 function revealPlayerPower() {
   var playerCard = document.querySelector(".played-card");
   playerCard.classList.add("reveal-power");
 }
 
-// Shows the power level on the hacker card
+// Mostra o nível de poder na carta do hacker
 function revealHackerPower() {
   var hackerCard = document.querySelector(".hacker-card");
   hackerCard.classList.add("reveal-power");
@@ -83,13 +82,13 @@ function compareCards() {
   var powerDifference = playerPower - hackerPower;
 
   if (powerDifference < 0) {
-    // Player Loses
+    // Jogador perde
     playerLife = playerLife + powerDifference;
     hackerCard.classList.add("better-card");
     playerCard.classList.add("worse-card");
     document.querySelector(".player-stats .thumbnail").classList.add("ouch");
   } else if (powerDifference > 0) {
-    // Player Wins
+    // Jogador ganha
     hackerLife = hackerLife - powerDifference;
     playerCard.classList.add("better-card");
     hackerCard.classList.add("worse-card");
@@ -112,7 +111,8 @@ function compareCards() {
   document.querySelector("button.next-turn").removeAttribute("disabled");
 }
 
-// Shows the winner message
+// Mostra a mensagem de vencedor
+
 function gameOver(winner, score) {
   audioObj.pause();
   document.querySelector(".game-board").classList.add("game-over");
@@ -139,11 +139,11 @@ function gameOver(winner, score) {
 }
 
 
-// Starts the game
+// Inicia o jogo
 function startGame() {
   audioObj.loop = true;
   audioObj.addEventListener("canplaythrough", event => {
-    /* the audio is now playable; play it if permissions allow */
+    /* o áudio está agora reproduzível; reproduza-o se as permissões permitirem */
     myAudioElement.play();
   });
   audioObj.play();
@@ -153,7 +153,7 @@ function startGame() {
 }
 
 
-// Start the game over from scratch
+// Reinicia o jogo do zero
 function restartGame() {
   document.querySelector(".game-board").classList.remove("game-over");
   document.querySelector(".game-board").classList.remove("during-game");
@@ -179,21 +179,21 @@ function restartGame() {
   updateScores();
 }
 
-// Updates the displayed life bar and life totals
+// Atualiza a barra de vida exibida e os totais de vida
 function updateScores() {
 
-  // Update life totals for each player
+  // Atualiza totais de vida para cada jogador
   document.querySelector(".player-stats .life-total").innerHTML = playerLife;
   document.querySelector(".hacker-stats .life-total").innerHTML = hackerLife;
 
-  // Update the player lifebar
+  // Atualiza a barra de vida do jogador
   var playerPercent = playerLife / playerStartLife * 100;
   if (playerPercent < 0) {
     playerPercent = 0;
   }
   document.querySelector(".player-stats .life-left").style.height = playerPercent + "%";
 
-  // Update the hacker lifebar
+  // Atualiza a barra de vida do hacker
   var hackerPercent = hackerLife / hackerStartLife * 100
   if (hackerPercent < 0) {
     hackerPercent = 0;
@@ -202,7 +202,7 @@ function updateScores() {
 }
 
 
-// Shuffles an array
+// Embaralha um array
 function shuffleArray(a) {
   var j, x, i;
   for (i = a.length; i; i--) {
@@ -215,19 +215,20 @@ function shuffleArray(a) {
 }
 
 
-// Plays one turn of the game
 function playTurn() {
 
-  roundFinished = true;
+  roundFinished =
+
+    true;
   cardSelected = false;
 
   document.querySelector(".game-board").classList.remove("card-selected");
 
-  // Remove "ouch" class from player and hacker thumbnails
+  // Remove a classe "ouch" das miniaturas do jogador e do hacker
   document.querySelector(".hacker-stats .thumbnail").classList.remove("ouch");
   document.querySelector(".player-stats .thumbnail").classList.remove("ouch");
 
-  // Hides the "next turn" button, will show again when turn is over
+  // Oculta o botão "next turn", será mostrado novamente quando a ronda terminar
   document.querySelector(".next-turn").setAttribute("disabled", "true");
 
   for (var i = 0; i < allCardElements.length; i++) {
@@ -245,7 +246,7 @@ function revealCards() {
   var j = 0;
   var cardIndexes = shuffleArray([0, 1, 2]);
 
-  // Get scenario cards
+  // Obter cartas de cenário
   console.log("scenarios.length == " + scenarios.length);
 
   var randomScenarioIndex = Math.floor(Math.random() * scenarios.length);
@@ -259,7 +260,7 @@ function revealCards() {
   var hackerCard = scenario.hackerCard;
   var hackerCardEl = document.querySelector(".hacker-area .card");
 
-  // Contents of the player cards
+  // Conteúdo das cartas do jogador
   var playerCards = scenario.playerCards;
 
   for (var i = 0; i < allCardElements.length; i++) {
@@ -272,14 +273,14 @@ function revealCards() {
     card.classList.remove("prepared");
     card.classList.remove("reveal-power");
 
-    // Display the payer card details
+    // Exibe os detalhes da carta do jogador
     if (card.classList.contains("player-card")) {
       card.querySelector(".text").innerHTML = playerCards[cardIndexes[j]].description;
       card.querySelector(".power").innerHTML = playerCards[cardIndexes[j]].power;
       j++;
     }
 
-    // Reveal each card one by one with a delay of 100ms
+    // Revela cada carta uma por uma com um atraso de 100ms
     setTimeout(function (card, j) {
       return function () {
         card.classList.remove("prepared");
@@ -289,7 +290,7 @@ function revealCards() {
     }(card, i), parseInt(i + 1) * 200);
   }
 
-  // Display the hacker card
+  // Exibe a carta do hacker
   hackerCardEl.querySelector(".text").innerHTML = hackerCard.description;
   hackerCardEl.querySelector(".power").innerHTML = hackerCard.power;
 }
@@ -319,34 +320,5 @@ function updateFinalScore(score) {
       // Falha ao gravar os dados...
       console.log('NAO');
     });
-
-  // let yourdata = { emailid: uid, msgContent: 'Score:'+score, name: user.displayName};
-
-  // writeUserData(uid, score, user.displayName);
-
-  // firebase.database().ref('contactForm').child(uid).set(yourdata)
-  //   .then((data) => {
-  //       console.log('Saved Data', data);
-  //   })
-  //   .catch((error) => {
-  //       console.log('Storing Error', error);
-  //   })   
-
-  // Criar um objeto com os dados do registro
-  // const novoRegistro = {
-  //   chave1: "valor1",s
-  //   chave2: "valor2",
-  //   chave3: "valor3"
-  // };
-
-  // Adicionar o registro à base de dados
-  // database.ref(path).set(novoRegistro)
-  //   .then(() => {
-  //     console.log("Registro adicionado com sucesso!");
-  //   })
-  //   .catch((error) => {
-  //     console.error("Erro ao adicionar o registro:", error);
-  //   });
-
 
 }
