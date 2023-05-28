@@ -24,7 +24,6 @@ function createLogin() {
     var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;
     var senha = document.getElementById('senha').value;
-    var senha = document.getElementById('idade').value;
 
     firebase.auth().createUserWithEmailAndPassword(email, senha)
         .then(function (result) {
@@ -37,7 +36,7 @@ function createLogin() {
             location.reload();
 
         }).catch(function (error) {
-            console.log(error);
+            alert("Lamentamos, mas ocorreu o seguinte erro: " + error);
         });
 }
 
@@ -53,7 +52,7 @@ function loginEmail() {
         alert('Utilizador com sessão iniciada!');
         location.reload();
     }).catch(error => {
-        console.log('error', error);
+        alert("Lamentamos, mas ocorreu o seguinte erro: " + error);
     });
 }
 
@@ -91,16 +90,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             function fetchData(score = 0) {
-                fetch('main.html')
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('welcome-login').innerHTML = "<h3 class='logo'>Bem-vindo(a) " + user.displayName + "! 👋</h3><small style='font-weight: 400; display: ruby-base-container' class='logo'>Pontuação: <div style='color:orange'>" + score + " ponto(s)</div></small>";
-                        document.getElementById('firebaseui-auth').innerHTML = "";
-                        document.getElementById('play').href = "maps.html";
-                        document.getElementById('logout').innerHTML = "<li><a onclick='logout()'><small>🚶‍♂️</small>Sair</a></li>";
-                        // document.getElementById('loginForm').innerHTML = "<div class='user-main'><div class='greeting'>Olá</div><div class='name'>" 
-                        // + user.displayName + "!</div>" + " A tua atual pontuação: " + score + " ponto(s)" + data;
-                    });
+                // fetch('main.html')
+                //     .then(response => response.text())
+                //     .then(data => {
+                document.getElementById('welcome-login').innerHTML = "<h3 class='logo'>Bem-vindo(a) " + user.displayName + "! 👋</h3><small style='font-weight: 400; display: ruby-base-container' class='logo'>Pontuação: <div style='color:orange'>" + score + " ponto(s)</div></small>";
+                document.getElementById('firebaseui-auth').innerHTML = "";
+                document.getElementById('play').href = "maps.html";
+                document.getElementById('logout').innerHTML = "<li><a style='cursor: pointer' onclick='logout()'><small>🚶‍♂️</small>Sair</a></li>";
+                // document.getElementById('loginForm').innerHTML = "<div class='user-main'><div class='greeting'>Olá</div><div class='name'>" 
+                // + user.displayName + "!</div>" + " A tua atual pontuação: " + score + " ponto(s)" + data;
+                // });
             }
             // document.getElementById('loading').style.display = 'none';
             // document.getElementById('loaded').style.display = 'block';

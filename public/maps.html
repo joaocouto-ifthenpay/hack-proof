@@ -2,68 +2,69 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HackProof</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <!-- Import Resources -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-    <!-- Import Firebase SDK -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HackProof</title>
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <!-- Import Resources -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+        <!-- Import Firebase SDK -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <link type="text/css" rel="stylesheet" href="css/main.css">
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
 </head>
 
 <body>
-    <main class="maps-page">
-        <section class="title">
-                <div class="back-button">
-                        <a href="#" onclick="history.back()">
-                                <span class="arrow"><</span> 
-                                <span class="text">Voltar</span>
-                        </a>
-                </div>
-                <div class="label">
-                        <span>Escolhe um Nível de hacker</span>
+        <section class="showcase">
+                <header>
+                        <h2 id='welcome-login' class="logo"></h2>
+                        <div class="toggle"></div>
+                </header>
+
+                <div class="overlay"></div>
+                <!-- <main class="maps-page"> -->
+
+                <div class="text">
+                        <h3>Níveis</h3>
+                        <p>Escolhe um nível de hacker:</p>
+                        <section class="all-maps">
+                                <div class="map-image unlocked">
+                                        <a href="play/index.html?&map=1">
+                                                <img src="images/maps/unlocked-icon.png" alt="Level 1">
+                                        </a>
+                                </div>
+                                <div class="map-image unlocked">
+                                        <a href="play/index.html?&map=2">
+                                                <img src="images/maps/unlocked-icon.png" alt="Level 2">
+                                        </a>
+                                </div>
+                                <div class="map-image locked">
+                                        <a href="play/index.html?&map=3">
+                                                <img src="images/maps/lock-icon.png" alt="Level 3">
+                                        </a>
+                                </div>
+                                <div class="map-image locked">
+                                        <a href="play/index.html?&map=4">
+                                                <img src="images/maps/lock-icon.png" alt="Level 4">
+                                        </a>
+                                </div>
+                                <div class="map-image locked">
+                                        <a href="play/index.html?&map=5">
+                                                <img src="images/maps/lock-icon.png" alt="Level 5">
+                                        </a>
+                                </div>
+                                <div class="map-image locked">
+                                        <a href="play/index.html?&map=6">
+                                                <img src="images/maps/lock-icon.png" alt="Level 6">
+                                        </a>
+                                </div>
+                        </section>
+                        <div class="overlay hidden"></div>
                 </div>
         </section>
-        <section class="all-maps">
-                <div id="choose_maps" class="choose-maps">
-                        <div class="maps-content">
-                                <div class="map-image">
-                                        <a href="play/index.html?&map=1"><img src="images/maps/unlocked-icon.png" alt=""></a>
-                                </div>
-                        </div>
-                        <div class="maps-content">
-                                <div class="map-image">
-                                        <a href="play/index.html?&map=2"><img src="images/maps/unlocked-icon.png" alt=""></a>
-                                </div>
-                        </div>
-                        <div class="maps-content locked">
-                                <div class="map-image locked">
-                                        <a href="play/index.html?&map=3"><img src="images/maps/unlocked-icon.png" alt=""></a>
-                                </div>
-                        </div>
-                        <div class="maps-content locked">
-                                <div class="map-image locked">
-                                        <a href="play/index.html?&map=4"><img src="images/maps/unlocked-icon.png" alt=""></a>
-                                </div>
-                        </div>
-                        <div class="maps-content locked">
-                                <div class="map-image locked">
-                                        <a href="play/index.html?&map=5"><img src="images/maps/unlocked-icon.png" alt=""></a>
-                                </div>
-                        </div>
-                        <div class="maps-content locked">
-                                <div class="map-image locked">
-                                        <a href="play/index.html?&map=6"><img src="images/maps/unlocked-icon.png" alt=""></a>
-                                </div>
-                        </div>
-                </div>
-        </section>
-    </main>
-    <script src="js/scripts.js"></script>
+        <div id="menu"></div>
+        <script src="js/scripts.js"></script>
 </body>
 
 </html>

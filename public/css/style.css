@@ -207,7 +207,7 @@ main {
 }
 
 .login__link.back {
-    margin-top:  64px;
+    margin-top: 64px;
 }
 
 .login__link .text:hover {
@@ -230,13 +230,13 @@ main {
     gap: 24px;
 }
 
-#loginForm div  {
+#loginForm div {
     text-align: center;
     text-transform: capitalize;
     color: white;
 }
 
-#loginForm .user-main .name  {
+#loginForm .user-main .name {
     font-size: 24px;
 }
 
@@ -261,35 +261,33 @@ main {
 .map-image {
     width: 200px;
     height: 200px;
+    display: grid;
+    place-items: center;
+    border-style: solid;
+    background-color: white;
+    opacity: 70%;
+    border-radius: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
-.map-image img{
+.map-image img {
     width: auto;
-    height: 150px;
+    height: 110px;
     border-radius: 50px;
     margin: 25px auto;
     display: block;
 }
 
-.map-image.locked img {
-    display: none;
+.unlocked:hover {
+    opacity: 100%;
 }
 
-.map-image.locked a {
+.locked a {
     pointer-events: none;
+    opacity: 70%;
 }
 
-.map-image.locked {
-    background-image: url('../images/maps/lock-icon.png');
-    background-size: cover;
-    background-position: center;
-    flex: 1;
-    width: auto;
-    max-width: 106px;
-    height: 150px;
-    border-radius: 50px;
-    margin: 25px auto;
-}
 
 .maps-page {
     display: flex;
@@ -303,14 +301,17 @@ main {
 }
 
 .all-maps {
-    display: inline-block;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    justify-items: center;
+    margin-bottom: -20px;
 }
 
 section.title {
     display: inline-block;
     margin: 0 auto;
-    background-color: rgb(9,9,9, 0.45);
+    background-color: rgb(9, 9, 9, 0.45);
     border-radius: 12px;
     margin-top: 120px;
 }
@@ -333,11 +334,11 @@ section.title .label {
     text-decoration: unset;
 }
 
-.back-button a .text{
+.back-button a .text {
     vertical-align: bottom;
 }
 
-.back-button a .text:hover{
+.back-button a .text:hover {
     text-decoration: underline;
     padding-bottom: 2px;
 }

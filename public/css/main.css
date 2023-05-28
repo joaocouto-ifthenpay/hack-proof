@@ -44,7 +44,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #111;
+    background: linear-gradient(#18181b, #171035);
     color: #fff;
     z-index: 2;
     transition: 0.5s;
@@ -119,7 +119,8 @@ body {
     width: 100%;
     height: 100%;
     background: var(--overlay-color);
-    mix-blend-mode: overlay;    /* define como o conteúdo de um elemento deve se misturar com o fundo */
+    mix-blend-mode: overlay;
+    /* define como o conteúdo de um elemento deve se misturar com o fundo */
 }
 
 
@@ -159,7 +160,8 @@ body {
     font-size: 1.1em;
     margin: 20px 0;
     font-weight: 400px;
-    max-width: 700px;   /* assim text.p não irá alcançar a largura total da resolução de ecrã */
+    max-width: 700px;
+    /* assim text.p não irá alcançar a largura total da resolução de ecrã */
 }
 
 
@@ -200,16 +202,19 @@ body {
 
 .social li a {
     display: inline-block;
-    filter: invert(1);      /* altera de preto para branco */
+    filter: invert(1);
+    /* altera de preto para branco */
     margin-right: 20px;
-    transform: scale(0.5);  /* reduz elementos */
+    transform: scale(0.5);
+    /* reduz elementos */
     transition: 0.5s;
     cursor: pointer;
 }
 
 
 .social li a:hover {
-    transform: scale(0.5) translateY(-15px);    /* move os elementos no eixo Y*/
+    transform: scale(0.5) translateY(-15px);
+    /* move os elementos no eixo Y*/
 }
 
 
@@ -243,6 +248,7 @@ body {
     color: white;
     /*var(--overlay-color);*/
 }
+
 
 .menu ul li a {
     cursor: pointer;
