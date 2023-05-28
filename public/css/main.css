@@ -27,7 +27,6 @@ body {
     }
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -49,6 +48,11 @@ body {
     color: #fff;
     z-index: 2;
     transition: 0.5s;
+}
+
+
+.showcase.history {
+    align-items: unset;
 }
 
 /* move o showcase 300px para a direita para revelar o menu usando a classe ativa */
@@ -238,6 +242,18 @@ body {
 .menu ul li a:hover {
     color: white;
     /*var(--overlay-color);*/
+}
+
+.menu ul li a {
+    cursor: pointer;
+}
+
+.menu ul li {
+    margin-bottom: 10px;
+}
+
+.menu small {
+    padding-right: 12px;
 }
 
 

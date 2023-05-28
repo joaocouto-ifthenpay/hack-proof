@@ -149,4 +149,22 @@ var scenarios = [{
             power: 1,
         }
     ]
+}, {
+    hackerCard: {
+        description: "Ofereci-te uma pen USB para transferência de dados",
+        power: 2,
+    },
+    playerCards: [{
+            description: "Utilizo proteção antivirus e firewall para proteger o sistema.",
+            power: 2,
+        },
+        {
+            description: "Recuso o uso da pen USB.",
+            power: 3,
+        },
+        {
+            description: "Utilizo a pen USB porque sei o teu facebook.",
+            power: 1,
+        }
+    ]
 }];

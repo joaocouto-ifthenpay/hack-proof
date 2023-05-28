@@ -242,7 +242,6 @@ function playTurn() {
 
 function revealCards() {
 
-
   var j = 0;
   var cardIndexes = shuffleArray([0, 1, 2]);
 

@@ -50,7 +50,7 @@ h1 strong {
 }
 
 .header h1 {
-  margin-top: 10px;
+  margin-top: 55px;
   font-size: 3vh;
   text-align: center;
 }
@@ -60,13 +60,21 @@ h1 strong {
   font-style: normal;
 }
 
+.hacker-area {
+  background: linear-gradient(0deg, #ce3d20, #000);
+}
+
+.player-area {
+  background: linear-gradient(0deg, #2a79d0, #000);
+}
+
 .hacker-area,
 .player-area {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 100px 260px 10px;
+  padding: 30px 100px 300px 10px;
   min-height: 235px;
   background-repeat: repeat;
   background-size: 200px;
@@ -193,7 +201,7 @@ button.next-turn {
 
 button.start-game {
   position: absolute;
-  background: linear-gradient(90deg, #2a79d0, #ce3d20);
+  background: linear-gradient(270deg, #2a79d0, #ce3d20);
   padding: 20px 30px;
   display: none;
   top: 45%;
@@ -280,11 +288,12 @@ button[disabled=true] {
 }
 
 .card {
+  border-radius: 15px;
   opacity: 0;
   margin: 0 10px;
   width: 150px;
-  height: 200px;
-  padding: 10px 15px;
+  height: 260px;
+  padding: 15px 15px 10px;
   color: black;
   font-size: 14px;
   line-height: 18px;
@@ -364,6 +373,7 @@ button[disabled=true] {
 
 .hacker-card.showCard {
   animation: hackerShowCard .5s ease-out;
+  width: 180px;
 }
 
 /* When the hacker card appears */
@@ -422,7 +432,6 @@ button[disabled=true] {
 .game-board:not(.card-selected) .player-area .card:not(.played-card):hover {
   transform: translateY(-10px);
   box-shadow: 0px 15px 15px rgba(0, 0, 0, .3);
-  border-radius: 10px;
 }
 
 .player-card.played-card {
@@ -526,6 +535,14 @@ button[disabled=true] {
   height: 50vh;
 }
 
+.level {
+  margin-top: 32px;
+  background-color: white;
+  display: inline-block;
+  color: #4c4646;
+  padding: 15px 30px;
+  border-radius: 26px;
+}
 
 
 @media only screen and (max-width: 1000px) {
