@@ -65,6 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
 
+
+            if (!user.displayName) {
+                user.displayName = '';
+            }
+
             let uid = user.uid;
             const database = firebase.database();
 
@@ -90,10 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             function fetchData(score = 0) {
-
-                if (!user.displayName) {
-                    user.displayName = '';
-                }
 
                 document.getElementById('welcome-login').innerHTML = "<h3 class='logo'>Bem-vindo(a) " + user.displayName + "! 👋</h3><small style='font-weight: 400; display: ruby-base-container' class='logo'>Atual pontuação: <div style='color:orange'>" + score + " ponto(s)</div></small>";
                 document.getElementById('firebaseui-auth').innerHTML = "";
